@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Shopping</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="slides" id="slides">
+                <div class="slide card">
+                    <div class="card">
+                        <figure>
+                            <img src="assets/arrietty.avif" alt="Arrietty Poster" class="poster">
+                            <video class="trailer" autoplay loop muted controls>
+                                <source src="assets/arrietty-trailer.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                        <div class="caption">
+                            <h2>Arrietty</h2>
+                            <p>A tiny girl who lives in the walls of a house and interacts with a boy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide card">
+                    <div class="card">
+                        <figure>
+                            <img src="assets/howlscastle.jpg" alt="Howl's Moving Castle Poster" class="poster">
+                            <video class="trailer" autoplay loop muted controls>
+                                <source src="assets/howl-trailer.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                        <div class="caption">
+                            <h2>Howl's Moving Castle</h2>
+                            <p>A young woman is cursed with old age and finds refuge in a moving castle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide card">
+                    <div class="card">
+                        <figure>
+                            <img src="assets/kiki.webp" alt="Kiki's Delivery Service Poster" class="poster">
+                            <video class="trailer" autoplay loop muted controls>
+                                <source src="assets/kiki-trailer.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                        <div class="caption">
+                            <h2>Kiki's Delivery Service</h2>
+                            <p>A young witch moves to a coastal city to start her training and delivers packages by broomstick.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide card">
+                    <div class="card">
+                        <figure>
+                            <img src="assets/spiritedaway.jpg" alt="Spirited Away Poster" class="poster">
+                            <video class="trailer" autoplay loop muted controls>
+                                <source src="assets/spirited-away-trailer.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                        <div class="caption">
+                            <h2>Spirited Away</h2>
+                            <p>A young girl enters a spirit world and must work to save her parents.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide card">
+                    <div class="card">
+                        <figure>
+                            <img src="assets/totoro.jpg" alt="My Neighbor Totoro Poster" class="poster">
+                            <video class="trailer" autoplay loop muted controls>
+                                <source src="assets/totoro-trailer.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                        <div class="caption">
+                            <h2>My Neighbor Totoro</h2>
+                            <p>Two sisters move to the countryside and befriend forest spirits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="navigation-bar">
+        <div class="navigation">
+            <nav id="mainNav">
+                <img src="assets/menu-icon.png" alt="Menu" id="menuToggle" class="menu-icon">
+                <ul id="navLinks">
+                    <li><a href="#home">Visit</a></li>
+                    <li><a href="#movies">Shop With Us</a></li>
+                    <li><a href="#about">Tickets</a></li>
+                    <li><a href="#contact">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section id="shopping-section" class="section">
+        <h2>Shop Ghibli Merchandise</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for products..." />
+        </div>
+        <div id="products-container"></div>
+        <button id="checkoutBtn" class="hidden">Checkout</button>
+    </section>
+
+    <section id="checkout-section" class="section hidden">
+        <h2>Checkout</h2>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="total-price">0</span></p>
+        <button id="proceedPaymentBtn">Proceed to Payment</button>
+    </section>
+
+    <section id="payment-section" class="section hidden">
+        <h2>Order Confirmation</h2>
+        <form id="purchase-form">
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" required>
+                <span class="error" id="fullnameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" required>
+                <span class="error" id="addressError"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" required>
+                <span class="error" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+                <label for="credit-card">Credit Card Number:</label>
+                <input type="text" id="credit-card" required>
+                <span class="error" id="creditCardError"></span>
+            </div>
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                <span class="error" id="expiryDateError"></span>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" required>
+                <span class="error" id="cvvError"></span>
+            </div>
+            <div class="form-group">
+                <label>Payment Method:</label>
+                <input type="radio" id="credit" name="payment-method" value="credit" required>
+                <label for="credit">Credit Card</label>
+                <input type="radio" id="debit" name="payment-method" value="debit">
+                <label for="debit">Debit Card</label>
+                <input type="radio" id="paypal" name="payment-method" value="paypal">
+                <label for="paypal">PayPal</label>
+                <span class="error" id="paymentMethodError"></span>
+            </div>
+            <div>
+                <button type="submit" id="confirmPurchaseBtn">Confirm Purchase</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="confirmation-section" class="section hidden">
+        <h2>Order Confirmed!</h2>
+        <p>Thank you for your order. It will be delivered in the next 3-4 working days.</p>
+        <p>Total: $<span id="confirmed-total">0</span></p>
+        <button id="back-to-shopping">Back to Shopping</button>
+    </section>
+
+    <section id="registration">
+        <form id="registrationform">
+            <div class="form-group">
+                <label for="date-of-visit">Date of Visit:</label>
+                <input type="date" id="date-of-visit" required>
+                <span class="error" id="visitDateError"></span>
+            </div>
+            <div class="form-group">
+                <label for="no-of-visitors">Number of Visitors:</label>
+                <select id="no-of-visitors" required>
+                    <option value="">Select...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5+</option>
+                </select>
+                <span class="error" id="visitorsError"></span>
+            </div>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" required>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+                <span class="error" id="dobError"></span>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <span class="error" id="genderError"></span>
+            </div>
+            <div class="form-group">
+                <label for="ticket">Ticket Type:</label>
+                <select id="ticket" required>
+                    <option value="">Select...</option>
+                    <option value="standard">Standard</option>
+                    <option value="vip">VIP</option>
+                    <option value="family">Family</option>
+                </select>
+                <span class="error" id="ticketError"></span>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments"></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
